@@ -1,0 +1,158 @@
+<html>
+  <head>
+    <title>NewUser.html</title>
+  </head>
+  <body>
+    <form>
+      <fieldset id="peronal_info">
+        <legend>Personal Info</legend>
+
+        <label for="FirstName">First Name: </label>
+        <input type="text" id="FirstName" maxlength="10" required/>
+        <br /><br />
+
+        <label for="LastName">Last Name: </label>
+        <input type="text" id="LastName" maxlength="15" required/>
+        <br /><br />
+
+        <label for="UserName">UserName: </label>
+        <input type="text" id="UserName" maxlength="15" required/>
+        <br /><br />
+      </fieldset>
+
+      <fieldset id="gender">
+        <legend>Gender</legend>
+
+        <div id="Gender_Selection">
+        <label for="Gender_Selection">Select Gender: </label>
+
+        
+        <input type="radio" id="Male" name="Gender_Options" value="male" required/>Male
+        <input type="radio" id="Female" name="Gender_Options" value="female"/>Female
+        <input type="radio" id="Other" name="Gender_Options" value="other"/>Other
+        
+        
+      </div>
+      </fieldset>
+
+      <fieldset id="known_languages">
+        <legend>Known Languages</legend>
+        <div id="Known_Languages">
+        <label for="Known_Languages">Select known languages: </label>
+
+        <input type="checkbox" id="English" name="Languages" value="english"/>English
+
+        <input type="checkbox" id="Hindi" name="Languages" value="hindi"/>Hindi
+
+        <input type="checkbox" id="Marathi" name="Languages" value="marathi"/>Marathi
+      </div>
+      </fieldset>
+    
+      <fieldset id="login_info">
+        <legend>Login Info</legend>
+
+        <label for="Email_Id">Email Id: </label>
+      <input type="email" id="Email_Id" maxlength="100" required/>
+      <br /><br />
+
+      <label for="Password">Password: </label>
+      <input type="password" id="Password" maxlength="10" required/>
+      <br /><br />
+
+      <label for="Confirm_Password">Confirm Password: </label>
+      <input type="password" id="Confirm_Password" maxlength="10" required/>
+      </fieldset>
+    </form>
+    <button id="Register" onclick="displayInfo()">Register New User</button>  <!-- type="submit" -->
+    <div id="output"></div>
+
+    <!-- java script starts here -->
+    <script>
+      function displayInfo(){
+        first_name = document.getElementById("FirstName").value;
+        last_name = document.getElementById("LastName").value;
+        user_name = document.getElementById("UserName").value;
+        
+        
+        const gender_group = document.getElementsByName("Gender_Options");
+        let user_gender;
+        for (let gender of gender_group){
+          if (gender.checked){
+            user_gender = gender.value;
+            break;
+          }
+        }
+        // console.log(gender_group);
+        
+
+        /*  // Another one liner way to get checked radio option ----------------
+        user_gender = document.querySelector('input[name="Gender_Options"]:checked').value;
+        console.log(user_gender);
+        */
+
+        languages = document.getElementsByName("Languages");
+        user_languages = [];
+        for (let language of languages){
+          if (language.checked){
+            user_languages.push(language.value);
+          }
+        }
+
+        email_id = document.getElementById("Email_Id").value;
+        password = document.getElementById("Password").value;
+        Confirm_password = document.getElementById("Confirm_Password").value;
+
+        output_div = document.getElementById("output");
+
+        // output_div.innerHTML = `${password}, ${Confirm_password}`;
+      
+        // /*
+        output_div.innerHTML =
+        `
+        <table border="1">
+      <thead>
+        <th>Key</th>
+        <th>Value</th>
+      </thead>
+      <tr>
+        <td>First Name</td>
+        <td>${first_name}</td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td>${last_name}</td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td>${user_name}</td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td>${user_gender}</td>
+      </tr>
+      <tr>
+        <td>Known Languages</td>
+        <td>${user_languages}</td>
+      </tr>
+      <tr>
+        <td>Email ID</td>
+        <td>${email_id}</td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td>${password}</td>
+      </tr>
+      <tr>
+        <td>Confirm Password</td>
+        <td>${Confirm_password}</td>
+      </tr>
+    </table>
+        `;
+        // */
+
+      }
+
+    </script>
+  </body>
+</html>
+

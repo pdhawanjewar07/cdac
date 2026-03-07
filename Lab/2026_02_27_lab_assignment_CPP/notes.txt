@@ -1,0 +1,329 @@
+Introduction to C++
+
+==>C++ was invented by Bjarne Stroustrup in 1979 at Bell lab.
+initially he called this lang as, c with classes,later in 1983 the name was changed to c++.
+
+==>C++ is a general purpose/multipurpose,high level,compiler based and object oriented programming language.
+
+==>What is general purpose?
+purpose means usage
+by using c++ we can design different types of s/ws
+
+Types of programming language
+1. Low-level programming language
+Low-level language is machine-dependent (0s and 1s) programming language. The processor runs low- level programs directly without the need of a compiler or interpreter, so the programs written in low-level language can be run very fast.
+
+
+2. High-level programming language (HLL) -It is designed for developing user-friendly software programs and websites.
+This programming language requires a compiler or interpreter to translate the program into machine language (execute the program).
+Example: Python, Java, JavaScript, PHP, C#, C,C++, etc.
+A high-level language is further divided into two parts -
+	a)Procedural Oriented programming language
+	b)Object-Oriented Programming language
+
+
+ques)which s/w application we can create using c++?
+==>using c++ , we can design operating system(dos,window,unix)
+==>using c++,we can design editors(notepad,wordpad,editplus)
+==>using c++,we can designcommercial application(related to money like (bank program,hotel managment program,supermarket program)
+In supermarket,bill should be generated,billing program is designed using c++.Bank transactions application is designed using c++.
+==>using c++,we are also able to design database(oracle is designed by c and c++)
+==>using c++,we can also design translators(compiler,interpreter,assembler)
+compiler and interpreter are used to convert high level lang to machine code.
+assembler is used to convert low level lang to machine code.
+In c++ we are using compiler as a translator,thats why c++ is called as compiler based programming lang.
+==>using c++,we can design PC and mobile games. e x:snake game,mario etc.
+=========================================================
+==>Software is a collection of programs. /it is a digitized automated process
+program is a set of instructions
+
+===============================================================================
+Object oriented programming
+==>C++ is an extension of C programming
+==>learn limitation and adv of c, how it is solved in c++?
+
+Ex:
+In a class several students are there,every student is having its own data.one student data doesnt belong to another student data.
+
+stu1 is an obj
+id ,name,fees----->attributes
+To access this variables we have to use function,this function is able to access only student1 data
+stu2 is an obj
+id ,name,fees----->attributes,to access this variables we have to use function,this function is able to access only student2 data
+
+i.e  data is seperated into no of blocks called object called as object1,object 2.
+object1 contains first student data,object2 contains 2nd student data.
+total program is divided into several objects. thatwhy c++ is called as object oriented programming structure.
+
+===================================================================================
+object oriented programming features
+
+1)class-->extension of c structure
+structure is collection of  heterogenous datatype. structure allows us to store different types of variables at one place under one name.due to structure ,it is very easy to construct object oriented programming.
+In oop will going to use class but that class derived/extension of c structure.
+
+==>we can able to declared both primitive and derived datatype at one place using structure.
+ex:
+I want to store student related data at one place ..
+ struct student
+{
+int id;primitaive
+int marks[6];//derived;
+};
+structure is constructed based on the user requirement  thats  why structure is called as user defined datatyes...
+
+ struct student
+{
+int id;primitaive
+int marks[6];//derived;
+}
+struct student s1,s2;//structure variable stored on stack.
+
+here  s1 stores 1st student data which is called as 1 object,now it is called object oriented .
+structure are the foundations to create class in c++.
+
+********disadvantage with structure*********
+In c lang structure data is by default public.structure data can be accessed from anywhere within the program. 
+now to have restristed data they have introduced class.
+========================================================
+In c++ also, we are having structure.
+
+Whats the difference between structure in C and structure in C++?
+In C ,inside the structure we can declare only variables(member structure) . while in C++,we can declare member structure +member function
+
+**In c++ also structure data is public.that means anyone can access data from anywhere,not secured.
+that why they have introduced class in c++.
+==========================================
+note:
+
+class uses the concept of inheritance but structure in c++ never uses the concept of inheritance
+
+if we dont specify access specifier to a data member of a class by default all the members become private
+in c++ structure by default all the members are public. by default structure data is public,class data is private. 
+====================================================================================
+
+
+**class is a collection of data members and member function both are associated together into a single unit called as class is called encapsulation
+encapsulation is a process of binding the data under member function together into a single unit  called class.
+
+====================================================>
+ In class, to access the data member first memory should be allocated,for this the object shld be created.
+
+OBJECT
+==>In structure,structure variable should be created to access the structure members.
+==>In class,class variables are called as object.
+class stu
+{
+};
+stu s;//object  (memory allocation takes place)
+==>this obj is created from this class, that why  class is called as blueprint(original copy) to construct the object(xerox copy). thatswhy
+to create object we need class,thats  why class is a blueprint and object is the instance of the class.
+
+==>object is the physical representation of a class.when object is created then only memory allocation takes place. class never allocates memory i.e logical representation.
+==================================================
+Difference between C structure and C ++ structure
+
+1)collection of variables                     collection of variables and function
+2)structure members are public       structure members are private,protected,public
+-------------------------------------------------------------------------------
+similarities between  C++ structure and class
+1)userdefined                          				  userdefined
+2)collection of variables & functions   		collection of  variables & functions
+3)members are private,protected,public		members are private,protected,public
+-------------------------------------------------------------------		
+Differences between  C	++ structure and class
+1)by default members are public 		by default members 	are private
+2) structure cannot be inherited		class can be inherited
+3)used to build simple program			uses to build complex program,big project
+============================================================================
+class:
+1)it is a userdefined datatypes because we r constructing a class based on primitive and derived datatype as per user requrimemt
+
+2)collection of datamembers and member functions
+3)it is a container because it contains members.
+4)class provides the concept of encapsulation(binding of data memebrs and member function in a single unit),provides the concept of data hiding with private access specifier.
+5)class is a blueprint to constructs the objects i.e it is a plan before constructing objectts
+paper plan(class)--------->  real building(object)
+6)class is a logical copy to create objects thats why class never occupies memory.
+
+syntax:
+class classname//class is keyword
+{
+access specifier://it specifies how it is going to access data in our program
+datamember;
+member function;
+};
+
+
+============================================================
+OBJECT
+To access class members,we should define objects because when class is declared memory is not allocated,when object is defined then only memory is allocated.
+
+ex: int a,b;
+int is logical copy occupies no memory
+a,b is physical copy ,memory gets allocated
+
+ex:student stu;
+stu.get();
+stu.put();
+thru object we can access class members...
+
+Object is :
+1) a variable of type class.
+2)an instance/xerox copy of a class
+3)it is physical representation of a class.
+==========================================================================
+Difference between procedural programming and object-oriented programming
+
+1)In procedural programming, the program is divided into small parts called functions.	
+In object-oriented programming, the program is divided into small parts called objects.
+
+2)It is less secure than OOPs. 
+Data hiding is possible in object-oriented programming . So, it is more secure than procedural programming.
+
+3)There is no access specifier in procedural programming.
+  Object-oriented programming has access specifiers like private, public, protected, etc.
+
+4)In procedural programming, data moves freely within the system from one function to another.	
+In OOP, objects can move and communicate with each other via member functions.
+
+5)There is no code reusability present in procedural programming.
+	It offers code reusability by using the feature of inheritance.
+===============================================================================================
+C++ Features
+
+Popular
+C++ can be the base language for many other programming languages that supports the feature of object-oriented programming. 
+
+ Compiler based
+C++ is a compiler-based programming language, which means no C++ program can be executed without compilation. C++ compiler is easily available, and it requires very little space for storage. First, we need to compile our program using a compiler, and then we can execute our program.
+
+
+
+Platform:
+Platform consists of processor/cpu and operating system.
+
+Platform Dependent ?
+The code which can only be run on same platform on which it was compiled. Compiled code cannot run on any other platforms.such language is called as platform dependent .
+ex: C,C++
+
+Here, same machine code which is compiled on windows,cannot be run on Linux or MAC OS.
+To run the code on MAC OS ,first we will have to compile in MAC OS.
+so such languages do not support code portability.
+
+
+A C++ executable is not platform-independent (compiled programs on Linux won’t run on Windows), however, they are machine-independent.  Suppose you have written a piece of code that can run on Linux/Windows/Mac OSx which makes the C++ Machine Independent but the executable file of the C++ cannot run on different operating systems.
+
+
+
+Rich Library
+C++ provides a lot of inbuilt functions that make the development fast. Following are the libraries used in C++ programming are:
+
+<iostream>
+<cmath>
+<cstdlib>
+<fstream>
+
+ Memory Management
+C++ provides very efficient management techniques. The various memory management operators help save the memory and improve the program's efficiency. These operators allocate and deallocate memory at run time. Some common memory management operators available C++ are new, delete etc.
+
+Object-Oriented
+In C++, object-oriented concepts like data hiding, encapsulation, and data abstraction can easily be implemented using keyword class, private, public, and protected access specifiers. Object-oriented makes development and maintenance easier.
+
+====================================================================
+Difference between C and C++
+
+C was developed by Dennis Ritchie between the year 1969 and 1973 at AT&T Bell Labs.	
+C++ was developed by Bjarne Stroustrup in 1979.
+
+C does no support polymorphism, encapsulation, and inheritance which means that C does not support object oriented programming.	
+C++ supports polymorphism, encapsulation, and inheritance because it is an object oriented programming language.
+
+C supports procedural programming.	 
+C++ supports object oriented programming paradigms.
+
+Data and functions are separated in C because it is a procedural programming language.	
+Data and functions are encapsulated together in form of an object in C++.
+
+C does not support data hiding so not secured.	
+C++ supports data hiding with the help of private access specifier,secured.
+
+Functions in C are not defined inside structures.	
+Functions can be used inside a structure in C++.
+
+C does not support inheritance.	
+C++ supports inheritance.
+
+Instead of focusing on data, C focuses on functions.	
+C++ focuses on data instead of focusing on method or procedure.
+
+C provides malloc() and calloc() functions for dynamic memory allocation, and free() for memory de-allocation.	
+C++ provides new operator for memory allocation and delete operator for memory de-allocation.
+
+Direct support for exception handling is not supported by C.	
+Exception handling is supported by C++.
+
+scanf() and printf() functions are used for input/output in C.	
+cin and cout are used for input/output in C++.
+
+C structures don’t have access modifiers.	
+C ++ structures have access modifiers.
+
+C does not support reference variables.
+C++ supports reference variables.
+========================================================================
+Types of Variables
+There are three types of variables based on the scope of variables in C++
+Local Variables
+Instance Variables
+Static Variables
+
+local variable
+the variable declared within the parenthesis of any function or any block is 
+called as local variable.
+These variables are created when entered into the block or the function is called and destroyed after exiting from the block or when the call returns from the function.
+The scope of these variables exists only within the block in which the variable is declared. i.e. we can access this variable only within that block.
+1)local variable cannot be declared globally 
+2)Initialization of Local Variable is Mandatory.
+3)scope and lifetime is within the block/within the function
+4)storage is stack section
+
+lifetime means how long the variable exists in the memory
+scope means how long the variable or value of that variable can be accessed
+in local variable lifetime depends on scope of variable
+
+#include<stdio.h>
+int main()
+{
+	int a=10;
+	 printf("%d",a);//10
+	 {
+		 int a=100;
+		 printf("%d",a);//100
+	 }
+	 printf("%d",a);//10
+}
+
+global variable
+Declaring global variables: Global variables are usually declared outside of all of the functions and blocks, at the top of the program. They can be accessed from any portion of the program.
+variable declared outside the function/block is called as global variable
+initial value is 0
+storage is data section
+lifetime-->thru out the program
+scope-->thru out the program
+
+#include <iostream>
+using namespace std;
+void fun();
+int a=10;
+int main()
+{
+    cout<<"Hello World";
+    fun();
+}
+void fun()
+{
+
+    cout<<a;
+}
+===============================================

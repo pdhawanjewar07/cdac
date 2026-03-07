@@ -1,0 +1,377 @@
+==================
+This Keyword
+
+Each object gets its own copy of data members and all objects share a single copy of member functions.
+Then now question is that if only one copy of each member function exists and is used by multiple objects, how are the proper data members are accessed and updated by member function?
+ans)The compiler supplies an implicit pointer along with the names of the functions as 'this'.
+
+==>whenever an object invokes member function,the address of that object is passed implicitly to the function as a hidden parameter . this pointer holds the address of the current object that invokes the fuction.
+==>It is a constant pointer. The type of this pointer for the object Complex c1 will  be
+Complex * const this; //it is a constant pointer to Complex object.
+==>This pointer is used to retrieve objects address. In c to find out variable address,we use & symbol.in c++,to know current object address, this pointer is used.
+==>this pointer is use to distinguish our data members(instanc varaible) from local variables when both are declared with the same name.To identify datamembers this pointer is used.
+==>every non static member function of c++ is having one hidden parameter called as this. static members function never contains this.
+//example:
+#include<iostream>
+using namespace std;
+class Complex
+{
+  int real,img;//instance variable
+  public:
+    Complex(int real,int img)//local variable
+    {
+      this->real=real;
+      this->img=img;
+    }
+  static  void display()
+    {
+    
+      cout<<this;//error -->this pointer cant be used in static function
+    }
+};
+int main()
+{
+
+  Complex c1(1,2);
+  Complex::display();
+  
+
+  
+  
+}
+========================================
+#include<iostream>
+using namespace std;
+class Complex
+{
+  int real,img;
+  public:
+    Complex(int r,int i)
+    {
+      real=r;
+      img=i;
+    }
+    void display()
+    {
+      cout<<"address inside this  is "<<this<<endl;
+      cout<<this->real<<"+"<<this->img<<"i"<<endl;
+    }
+};
+int main()
+{
+
+  Complex c1(1,2);
+  cout<<"address of object c1 is "<<&c1<<endl;
+  c1.display();
+  
+  Complex c2(3,4);
+    cout<<"address of object c1 is "<<&c2<<endl;
+  c2.display();
+  
+  
+}
+============================================
+#include<iostream>
+using namespace std;
+class Complex
+{
+  int real,img;//instance variable
+  public:
+    Complex(int real,int img)//local variable
+    {
+      this->real=real;
+      this->img=img;
+    }
+    void display()
+    {
+    
+      cout<<real<<"+"<<this->img<<"i"<<endl;
+    }
+};
+int main()
+{
+
+  Complex c1(1,2);
+  c1.display();
+  
+
+  
+  
+}
+==============================================================
+
+
+Let's see the example of this keyword in C++ that refers to the fields of current class.
+#include<iostream>
+using namespace std;
+class Test
+{
+int a,b;
+public:
+void show()
+{
+a=10;
+b=20;
+cout<<"obj add"<<this<<endl;//print current class obj adddress
+cout<<"a" <<this->a<<endl;
+cout<<"b"<<this->b<<endl;
+}
+};
+int main()
+{
+Test t;
+cout<<&t<<endl;
+t.show();
+}
+========================
+
+#include<iostream>
+using namespace std;
+class Test
+{
+int a,b;
+public:
+void show(int a,int b)
+{
+  //this->a=a;
+  //(*this).b=b;
+  //a=a;
+  //b=b;
+  //this->a=a  ======= (*this).a=a;(pointer to member)
+  
+
+}
+void display()
+{
+cout<<a<<b;
+}
+};
+int main()
+{
+Test t;
+t.show(10,20);
+t.display();
+}
+
+-----------------------------------------------------------------------------------------------------------------------
+
+=================================================================================
+
+imp:
+Passing and Returning object to and from the function in C++
+In C++ we can pass class’s objects as arguments and also return them from a function the same way we pass and return other variables.
+
+Passing an Object as argument
+To pass an object as an argument we write the object name as the argument while calling the function the same way we do it for other variables.
+Syntax:  
+function_name(object_name);
+
+Returning Object as argument
+Syntax: 
+object = return object_name;
+
+#include<iostream>
+using namespace std;
+class Test
+{
+  int a;
+  public:
+  void get()
+  {
+    cout<<"enter value of a\n";
+    cin>>a;
+  }
+  void add(Test& new_aobj2)
+  {
+    cout<<this->a<<endl;//10
+    cout<<a<<endl;//10
+    cout<<new_aobj2.a<<endl;//5
+  }
+  
+};
+int main()
+{
+  Test aobj1,aobj2;
+  aobj1.get();
+  aobj2.get();
+  aobj1.add(aobj2);  
+}
+=================================================
+#include<iostream>
+using namespace std;
+class Test
+{
+  int a;
+  public:
+  void get()
+  {
+    cout<<"enter value of a\n";
+    cin>>a;
+  }
+  void add(Test& new_aobj2)
+  {
+  cout<<"result is "<<  this->a + new_aobj2.a;
+  }
+  
+};
+int main()
+{
+  Test aobj1,aobj2;
+  aobj1.get();
+  aobj2.get();
+  aobj1.add(aobj2);
+}
+
+===========================================
+#include<iostream>
+using namespace std;
+class Test
+{
+  int a;
+  public:
+  void get()
+  {
+    cout<<"enter value of a\n";
+    cin>>a;
+  }
+  Test add(Test& new_aobj2)
+  {
+    Test aobj3;
+    aobj3.a=this->a + new_aobj2.a;
+    return aobj3;//returning object from the function
+    
+  }
+  void display()
+  {
+    cout<<"value is "<<this->a;
+  }
+  
+};
+int main()
+{
+  Test aobj1,aobj2,aobj4;
+  aobj1.get();
+  aobj2.get();
+  aobj4=aobj1.add(aobj2);
+  aobj4.display(); 
+}
+==========================================
+
+==========================================
+Exercise 1:
+Which of the following is true about this pointer?
+(A) It is passed as a hidden argument to all function calls
+(B) It is passed as a hidden argument to all non-static function calls
+(C) It is passed as a hidden argument to all static functions
+(D) None of the above
+
+Answer: (B)
+
+===========================================================================================
+Array of Objects
+
+=>In C++, an array of objects is a collection of objects of the same class type that are stored in contiguous memory locations. Since each item in the array is an instance of the class, each one's member variables can have unique value. This makes it possible to manage and handles numerous objects by storing them in a single data structure and giving them similar properties and behaviours.
+
+syntax:
+classname arrayname[arraysize];
+
+==>classname is the name of the class that the objects belong to
+==>arrayname is the name of the array of objects
+==>arraysize is the number of objects in the array .
+
+
+#include<iostream>
+using namespace std;
+class Student
+{
+    int rollNo;
+    int marks;
+    public :
+    void get();
+    void display();
+
+};
+void Student::get()
+{
+    cout<<"enter rolllno and marks\n";
+    cin>>rollNo;
+    cin>>marks;
+}
+void Student::display()
+{
+    cout<<"rollno and marks  is \n"<<rollNo<<"  "<<marks<<endl;
+}
+int main()
+{
+    int i;
+    Student s[3]; //s is an arary containing 3 objects of type Student
+    for(i=0;i<=2;i++)
+  {
+        s[i].get();
+    }
+    for(i=0;i<=2;i++)
+  {
+        s[i].display();
+    }
+}
+====================================================
+#include<iostream>
+using namespace std;
+int main()
+{
+    char name[10];
+    cout<<"accept name of the city\n";
+    cin>>name;//pune
+    cout<<"name of the city is "<<name;
+}
+
+=========================================
+Example:
+Storing more than one Employee data. Let’s assume there is an array of objects for storing 30 employee's data where data members are id (int) name(char[])
+#include<iostream>
+using namespace std;
+class Employee
+{
+  int id;
+  char name[30];
+  public:
+    void getdata();
+    void putdata();
+};
+void Employee::getdata()
+{
+  cout << "Enter Id : ";
+  cin >> id;
+  cout << "Enter Name : ";
+  cin >> name;
+}
+void Employee::putdata()
+{
+  cout << id << " ";
+  cout << name << " ";
+  cout << endl;
+}
+int main()
+{
+  // This is an array of objects having maximum limit of 30 Employees
+  Employee emp[30];
+  int n, i;
+  cout << "Enter Number of Employees present today ";
+  cin >> n;
+   
+  // Accessing the function
+  for(i = 0; i < n; i++)
+    emp[i].getdata();
+   
+  cout << "Employee Data - " << endl;
+   
+  // Accessing the function
+  for(i = 0; i < n; i++)
+    emp[i].putdata();
+}
+
+Advantages of Array of Objects:
+
+==>The array of objects represent storing multiple objects in a single name.
+==>In an array of objects, the data can be accessed randomly by using the index number.
+==>Reduce the time and memory by storing the data in a single variable.

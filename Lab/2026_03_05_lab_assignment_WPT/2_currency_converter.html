@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    
+</head>
+<body>
+    <div>
+        <input id="input_amount" type="number" placeholder="Add Amount">
+        
+        <!-- From currency -->
+        <label for="from">From: </label>
+        <select id="from">
+            <option name="currency_from"  value="rupee">Rupee</option>
+            <option name="currency_from"  value="dollar">Dollar</option>
+            <option name="currency_from"  value="euro">Euro</option>
+        </select>
+
+        <!-- To currency -->
+        <label for="to">To: </label>
+        <select id="to">
+            <option name="currency_to" value="rupee">Rupee</option>
+            <option name="currency_to" value="dollar">Dollar</option>
+            <option name="currency_to" value="euro">Euro</option>
+        </select>
+
+        <button id="convert">Convert</button>
+
+        <fieldset>
+            <legend>Output</legend>
+            <p id="output"></p>
+        </fieldset>
+        
+    </div>
+    <script src="2.js"></script>
+</body>
+</html>
+

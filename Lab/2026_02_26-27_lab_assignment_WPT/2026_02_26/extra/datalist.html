@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <form action="">
+    <label for="carsInput">Your Cars Name: </label>
+    <input list="cars" id="carsInput" />
+    <datalist id="cars">
+      <option value="BMW" />
+      <option value="Bentley" />
+      <option value="Mercedes" />
+      <option value="Audi" />
+      <option value="Volkswagen" />
+    </datalist>
+
+    <button onclick="datalistcall()" type="button">
+      Click Here
+    </button>
+  </form>
+  <p id="output"></p>
+
+  <script type="text/javascript">
+    function datalistcall() {
+      var o1 = document.getElementById("carsInput").value;
+      document.getElementById("output").innerHTML =
+        "You select " + o1 + " option";
+    }
+  </script>
+</body>
+
+</html>

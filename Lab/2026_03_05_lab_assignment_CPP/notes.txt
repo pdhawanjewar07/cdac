@@ -1,0 +1,509 @@
+Array in C++
+
+In C++, an array is a data structure that is used to store multiple values of similar data types in a contiguous memory location.
+
+Array Declaration in C++
+In C++, we can declare an array by simply specifying the data type first and then the name of an array with its size.
+data_type array_name[Size_of_array];
+Example
+
+int arr[5];
+Here,
+
+int: It is the type of data to be stored in the array. We can also use other data types such as char, float, and double.
+arr: It is the name of the array.
+5: It is the size of the array which means only 5 elements can be stored in the array.
+
+Take Inputs from User and Store Them in an Array
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  int numbers[5];
+
+  cout << "Enter 5 numbers: " << endl;
+
+  //  store input from user to array
+  for (int i = 0; i < 5; ++i) {
+    cin >> numbers[i];
+  }
+
+  cout << "The numbers are: ";
+
+  //  print array elements
+  for (int n = 0; n < 5; ++n) {
+    cout << numbers[n] << "  ";
+  }
+
+  return 0;
+}
+
+
+
+The C++ Program to Illustrate How to Find the Size of an Array
+C++
+#include <iostream> 
+using namespace std; 
+  int main() 
+{ 
+    int arr[] = { 1, 2, 3, 4, 5 }; 
+  
+    // Size of one element of an array 
+    cout << "Size of arr[0]: " << sizeof(arr[0]) << endl; 
+  
+    // Size of array 'arr' 
+    cout << "Size of arr: " << sizeof(arr) << endl; 
+  
+    // Length of an array 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+  
+    cout << "Length of an array: " << n << endl; 
+  
+    return 0; 
+}
+ 
+// C++ Program to Illustrate that Array Name is a Pointer 
+// that Points to First Element of the Array 
+#include <iostream> 
+using namespace std; 
+  
+int main() 
+{ 
+    // Defining an array 
+    int arr[] = { 1, 2, 3, 4 }; 
+  
+    // Define a pointer 
+    int* ptr = arr; 
+  
+    // Printing address of the arrary using array name 
+    cout << "Memory address of arr: " << &arr << endl; 
+  
+    // Printing address of the array using ptr 
+    cout << "Memory address of arr: " << ptr << endl; 
+  
+    return 0; 
+}
+
+// C++ Program to Print Array Elements without Indexing 
+#include <iostream> 
+using namespace std; 
+  
+int main() 
+{ 
+  
+    // Define an array 
+    int arr[] = { 11, 22, 33, 44 }; 
+  
+    // Print elements of an array 
+    cout << "first element: " << *arr << endl; 
+    cout << "Second element: " << *(arr + 1) << endl; 
+    cout << "Third element: " << *(arr + 2) << endl; 
+    cout << "fourth element: " << *(arr + 3) << endl; 
+  
+    return 0; 
+}
+
+
+===================================================================
+#include<iostream>
+using namespace std;
+int main()
+{
+    int arr[5]={1,2,3,4,5};
+    int* ptr=arr;
+    cout<<arr[0]<<endl;
+    cout<<*(arr+0)<<endl;
+     cout<<&arr[0]<<endl;
+    cout<<(arr+0)<<endl;
+    cout<<arr<<"  "<<ptr<<endl;
+    
+}
+===============================
+#include<iostream>
+using namespace std;
+int main()
+{
+    int arr[5]={1,2,3,4,5};
+    int* ptr=arr;
+   //arr is constant pointer and ptr is non const pointer
+  // arr++;//error //arr=arr+1 //arr=100+1 //arr=104
+   ptr++;//ptr=ptr+1 //ptr=100+1 //ptr=104
+   cout<<*ptr<<endl;
+   ptr=ptr+2;//ptr=104+2 // ptr=112
+   cout<<*ptr<<endl;//4
+   ptr=ptr-3; //ptr=112-3 //ptr=100
+   cout<<*ptr<<endl;//1
+    
+}
+========================================
+//a[i] ==>*(a+i)
+//&a[i]====>(a+i)
+
+#include<iostream>
+using namespace std;
+int main()
+{
+  int a[5];
+  int i;
+  cout<<"accept elements\n";
+  for(i=0;i<=4;i++)
+  {
+    cin>>*(a+i);
+  }
+  cout<<"display elements\n";
+  for(i=0;i<=4;i++)
+  {
+  cout<<*(a+i)<<"\t";
+  }
+  
+  
+  
+}
+================================================
+//a[i] ==>*(a+i)
+//&a[i]====>(a+i)
+
+#include<iostream>
+using namespace std;
+int main()
+{
+  int a[5];
+  cout<<&a[0]<<endl;
+  cout<<(a+0)<<endl;
+  
+  
+  
+}
+===================================================================
+
+===========================================================================
+Reference variable..
+
+==>Reference is a new datatype(derived datatype) introduced in c++ and this kind of variable is called as reference variables.In c derived dataypes are pointer,array but in c++ along with this , we can use reference datype as derived
+datatype.
+==>In c++ we have pass by reference. but why?
+==>In call by address,we have to declared formal parameter as a pointer and pointer holds address.
+ problem is we can initialise any  variable address in future.First  variable address is passed,later we can change address inside pointer. Means we can initialize another variable address into this pointer, due to this which variable adress it is going to store,makes confusion. Thats why pointer is not secured.
+==>To overcome the above limitations, reference datatype is introduced.
+
+1)A reference variable is an alias, that is, another name for an already existing variable.
+2)A variable can be declared as a reference by putting '&' in the declaration. 
+
+syntax:
+data_type &refname = variable;
+
+ex:
+int num=10;
+int &refnum=num;
+
+==>num is an integer variable, located at some address which is initialized to a value 10.
+==>refnum is a another name for variable num, therefore refnum is a reference to num.
+
+3)We can access the contents of the variable through either the original variable name or the reference  name. 
+ex:
+int i = 17;
+int &r = i;
+r is the reference name for the original variable name i.
+
+#include <iostream>
+using namespace std;
+ int main ()
+{
+   int    i;
+   double d;
+   int &r = i;
+   double &s = d;
+     i = 5;
+   cout << "Value of i : " << i << endl;
+   cout << "Value of i reference : " << r  << endl;
+    d = 11.7;
+   cout << "Value of d : " << d << endl;
+   cout << "Value of d reference : " << s  << endl;
+}
+
+
+4)No seperate memory is allocated for a reference.Its just an alternative name given to the reference variable.
+5)You cannot have NULL reference. Reference should always be initialized with some variable.
+    reference must be initialized at the time of the declaration.
+
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+int a=10; // variable initialization  
+int &b=a; // b reference to a  
+cout << "value of a is " <<b<< std::endl;  
+return 0;  
+} 
+
+Output:
+ value of a is 10  
+we have created a reference variable, i.e., 'b'. At the time of declaration, 'a' variable is assigned to 'b'. If we do not assign at the time of declaration, then the code would look like:
+
+int &b;  
+&b=a;    
+The above code will throw a compile-time error as 'a' is not assigned at the time of declaration.
+
+6)Once a reference is initialized to an object, it cannot be  refer to another object i.e it is secured. 
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+int x=11; // variable initialization  
+int z=67;  
+int &y=x; // y reference to x  
+int &y=z; // y reference to z, but throws a compile-time error.  
+return 0;
+}  
+==>reference is a rigid connection.
+
+========================================
+void main()
+{
+int a=100;
+int &b=a;
+int &c=b;
+cout<<a<<b<<c;
+c=200;
+cout<<a<<b<<c;
+}
+=====================================================================================================
+Difference between pointer and reference;
+1)pointer is a flexible connection. it can point to any variable at a given point of a program.
+Reference is a rigid connection,reference once created,cannot refer to any other object.
+
+2)pointer has to be dereferenced using * operator to access the value at the address pointed by it.
+A reference has direct connection as it is another name for the same memory location.
+
+3)Reference cannot be null whereas pointer can point to null to indicate that they are not pointing to any valid thing. .
+
+=====================================================================================================
+#include <iostream>
+using namespace std;
+ int main()
+{
+    int* ptr = NULL;
+    int& ref = *ptr;
+    cout << ref << '\n';
+}
+--------------------------------------------------------------------------------
+===================================================================================
+==============================================================
+Default Arguments
+A default argument is a value provided in a function declaration that is automatically assigned by the compiler if the calling function doesn’t provide a value for the argument. 
+
+Characteristics for defining the default arguments
+
+Following are the rules of declaring default arguments -
+
+The values passed in the default arguments are not constant. These values can be overwritten if the value is passed to the function. If not, the previously declared value retains.
+During the calling of function, the values are copied from left to right.
+All the values that will be given default value will be on the right.
+
+#include <iostream>  
+using namespace std;  
+ void add(int=1,int=2,int=3,int=4);
+int main() 
+{
+  add();
+  add(10);
+  add(10,20);
+  add(10,20,30);  
+    add(10,20,30,40);
+    return 0;  
+} 
+void add(int a,int b,int c,int d)
+{
+  cout<<a+b+c+d<<endl;//10 19 37 100
+ } 
+
+==========================================
+#include <iostream>
+using namespace std;
+void display(char = '*', int = 3);
+int main() {
+    int count = 5;
+
+    cout << "No argument passed: ";
+    display(); 
+    
+    cout << "First argument passed: ";
+    display('#'); 
+    
+    cout << "Both arguments passed: ";
+    display('$', count); 
+
+    return 0;
+}
+void display(char c, int count) {
+    for(int i = 1; i <= count; ++i)
+    {
+        cout << c;
+    }
+    cout << endl;
+}
+
+=================================================
+
+#include<iostream>
+using namespace std;
+void func(int a, bool flag = true)
+{
+    if (flag == true ) 
+    {
+      cout<< "Flag is true. a = " << a;
+                }
+    else
+    {
+      cout<< "Flag is false. a = " << a;
+          }
+}
+int main()
+{
+  func(200, false);
+}
+
+Keypoints:Default arguments are different from constant arguments as constant arguments can’t be changed whereas default arguments can be overwritten if required.
+==============================================
+If we are defining the default arguments in the function definition instead of the function prototype, then the function must be defined before the function call.
+
+#include <iostream>
+using namespace std;
+
+int sum(int x, int y, int z = 5, int w = 10) 
+{
+    return (x + y + z + w);
+}
+int main()
+{
+    cout << sum(10, 15) << endl;
+    cout << sum(10, 15, 25) << endl;
+    cout << sum(10, 15, 25, 30) << endl;
+   
+}
+
+=======================================================
+points to remember
+
+1)Once we provide a default value for a parameter, all subsequent parameters must also have default values. For example,
+// Invalid
+void add(int a, int b = 3, int c, int d);
+
+// Invalid
+void add(int a, int b = 3, int c, int d = 4);
+
+// Valid
+void add(int a, int c, int b = 3, int d = 4);
+
+2)Default values shld be given from trailing ends.i.e from right to left
+void add(int a,int b=3,int c=3,int d=4);//valid compulsary we have to pass 1 argument from function call
+void add(int a=4,int b=3,int c=3,int d);//invalid
+void add(int a=1,int b,int c=3,int d=4);//invalid
+
+===========================================================================================
+Advantages of Default Arguments:
+
+Default arguments are useful when we want to increase the capabilities of an existing function as we can do it just by adding another default argument to the function.
+It helps in reducing the size of a program.
+It provides a simple and effective programming approach.
+
+=============================================================================================
+
+==========================================================
+Function Overloading
+
+==>In C++, We can have more than one constructor in a class with same name, as long as each has a different list of signatures.This concept is known as Constructor Overloading 
+==>Two or more function having same function name but different signatures is called as function overloading.
+==> In Function Overloading Function name should be the same and the arguments should be different. 
+==>The criteria to overload a constructor is to differ the number of arguments or the type of arguments. We dont consider return type as a criteria to overload a constructor.
+
+Why Function Overloading?
+Suppose you have to perform addition of the given numbers but there can be any number of arguments, if you write the function such as a(int,int) for two parameters, and b(int,int,int) for three parameters then it may be difficult for you to understand the behavior of the function because its name differs.
+ 
+The parameters should follow any one or more than one of the following conditions for Function overloading:
+
+1)Parameters should have a different type
+add(int a, int b)
+add(double a, double b)
+
+#include <iostream>
+using namespace std;
+ void add(int a, int b)
+{
+  cout << "sum = " << (a + b);
+}
+ void add(double a, double b)
+{
+    cout << endl << "sum = " << (a + b);
+}
+ int main()
+{
+    add(10, 2);
+    add(5.3, 6.2);
+ }
+
+2)Parameters should have a different number 
+add(int a, int b)
+add(int a, int b, int c)
+
+#include <iostream>
+using namespace std;
+ void add(int a, int b)
+{
+  cout << "sum = " << (a + b);
+}
+ void add(int a, int b, int c)
+{
+    cout << endl << "sum = " << (a + b + c);
+}
+int main()
+{
+    add(10, 2);
+    add(5, 6, 4);
+  }
+
+3)Parameters should have a different sequence of parameters.
+add(int a, double b)
+add(double a, int b)
+
+#include<iostream>
+using namespace std;
+ void add(int a, double b)
+{
+    cout<<"sum = "<<(a+b);
+} 
+ void  add(double a, int b)
+{
+    cout<<endl<<"sum = "<<(a+b);
+} 
+ int main()
+{
+    add(10,2.5);
+    add(5.5,6);
+ }
+
+------------------------------------
+How does Function Overloading work?
+Exact match:- (Function name and Parameter)
+If a not exact match is found:–
+               ->Char are promoted to an int.
+
+               ->Float is promoted to double
+
+If no match is found:
+               ->C++ tries to find a match through the standard conversion.
+
+ELSE ERROR
+=============================================================================================
+===========================================================================================
+Array of Objects
+
+==>In C++, an array of objects is a collection of objects of the same class type that are stored in contiguous memory locations. Since each item in the array is an instance of the class, each one's member variables can have unique value. This makes it possible to manage and handles numerous objects by storing them in a single data structure and giving them similar properties and behaviours.
+
+syntax:
+classname objectname[arraysize];
+
+==>classname is the name of the class that the objects belong to
+==>arrayname is the name of the array of objects
+==>arraysize is the number of objects in the array .

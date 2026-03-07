@@ -1,0 +1,6 @@
+Q. Write a student class and use it in your program. Store the data of 10 students and display the data according to their roll numbers, dates of birth, and total marks.
+
+Implement concepts such as : 
+-Classes and Objects
+-Constructors
+-Parameterized constructors

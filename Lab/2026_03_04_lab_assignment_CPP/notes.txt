@@ -1,0 +1,223 @@
+===========================================================================
+Reference variable..
+
+==>Reference is a new datatype(derived datatype) introduced in c++ and this kind of variable is called as reference variables.In c derived dataypes are pointer,array but in c++ along with this , we can use reference datype as derived
+datatype.
+==>In c++ we have pass by reference. but why?
+==>In call by address,we have to declared formal parameter as a pointer and pointer holds address.
+ problem is we can initialise any  variable address in future.First  variable address is passed,later we can change address inside pointer. Means we can initialize another variable address into this pointer, due to this which variable adress it is going to store,makes confusion. Thats why pointer is not secured.
+==>To overcome the above limitations, reference datatype is introduced.
+
+1)A reference variable is an alias, that is, another name for an already existing variable.
+2)A variable can be declared as a reference by putting '&' in the declaration. 
+
+syntax:
+data_type &refname = variable;
+
+ex:
+int num=10;
+int &refnum=num;
+
+==>num is an integer variable, located at some address which is initialized to a value 10.
+==>refnum is a another name for variable num, therefore refnum is a reference to num.
+
+3)We can access the contents of the variable through either the original variable name or the reference  name. 
+ex:
+int i = 17;
+int &r = i;
+r is the reference name for the original variable name i.
+
+#include <iostream>
+using namespace std;
+ int main ()
+{
+   int    i;
+   double d;
+   int &r = i;
+   double &s = d;
+     i = 5;
+   cout << "Value of i : " << i << endl;
+   cout << "Value of i reference : " << r  << endl;
+    d = 11.7;
+   cout << "Value of d : " << d << endl;
+   cout << "Value of d reference : " << s  << endl;
+}
+
+
+4)No seperate memory is allocated for a reference.Its just an alternative name given to the reference variable.
+5)You cannot have NULL reference. Reference should always be initialized with some variable.
+    reference must be initialized at the time of the declaration.
+
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+int a=10; // variable initialization  
+int &b=a; // b reference to a  
+std::cout << "value of a is " <<b<< std::endl;  
+return 0;  
+} 
+
+Output:
+ value of a is 10  
+we have created a reference variable, i.e., 'b'. At the time of declaration, 'a' variable is assigned to 'b'. If we do not assign at the time of declaration, then the code would look like:
+
+int &b;  
+&b=a;    
+The above code will throw a compile-time error as 'a' is not assigned at the time of declaration.
+
+6)Once a reference is initialized to an object, it cannot be  refer to another object i.e it is secured. 
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+int x=11; // variable initialization  
+int z=67;  
+int &y=x; // y reference to x  
+int &y=z; // y reference to z, but throws a compile-time error.  
+return 0;
+}  
+==>reference is a rigid connection.
+
+========================================
+Pass by value:
+
+#include<iostream>
+using namespace std;
+int swap(int,int);
+int main()
+{
+	int a,b,z;
+	cout<<"enter value of a and b\n";
+	cin>>a>>b;
+	cout<<"before swapping value of a and b\n";
+	cout<<"value of a = "<<a<<"  "<<"value of b = "<<b<<endl; 
+	z=swap(a,b);//function calling
+	cout<<"value of x is  "<<z<<endl;
+	cout<<"after calling swap () value of a and b\n";
+	cout<<"value of a = "<<a<<"  "<<"value of b = "<<b<<endl;
+}
+int swap(int p,int q)
+{
+	int x=100,y=200;
+	int temp;
+	temp=p;
+	p=q;
+	q=temp;
+	cout<<"after swapping value of p and q\n";
+	cout<<"value of p = "<<p<<"  "<<"value of q = "<<q<<endl;
+	return x,y,1,2,5,6,9;
+}
+
+============================================
+pass by address
+
+#include<iostream>
+using namespace std;
+void swap(int*,int*);
+int main()
+{
+	int a,b;
+	cout<<"enter value of a and b\n";
+	cin>>a>>b;
+	cout<<"before swapping value of a and b\n";
+	cout<<"value of a = "<<a<<"  "<<"value of b = "<<b<<endl; 
+	swap(&a,&b);//function calling
+	
+	cout<<"after calling swap () value of a and b\n";
+	cout<<"value of a = "<<a<<"  "<<"value of b = "<<b<<endl;
+}
+void swap(int* p,int* q)
+{
+
+	int temp;
+	temp=*p;
+	*p=*q;
+	*q=temp;
+	cout<<"after swapping value of *p and *q\n";
+	cout<<"value of *p = "<<*p<<"  "<<"value of *q = "<<*q<<endl;
+
+}
+
+=========================================
+pass by reference
+
+#include<iostream>
+using namespace std;
+void swap(int&,int&);
+int main()
+{
+	int a,b;
+	cout<<"enter value of a and b\n";
+	cin>>a>>b;
+	cout<<"before swapping value of a and b\n";
+	cout<<"value of a = "<<a<<"  "<<"value of b = "<<b<<endl; 
+	swap(a,b);//function calling
+	
+	cout<<"after calling swap () value of a and b\n";
+	cout<<"value of a = "<<a<<"  "<<"value of b = "<<b<<endl;
+}
+void swap(int& p,int& q)
+{
+	int temp;
+	temp=p;
+	p=q;
+	q=temp;
+	cout<<"after swapping value of p and q\n";
+	cout<<"value of p = "<<p<<"  "<<"value of q = "<<q<<endl;
+
+}
+
+
+
+
+
+7)Reference can pass as a parameter to function.
+
+==>References can also be passed as a function parameter. It does not create a copy of the argument and behaves as an alias for a parameter. It enhances the performance as it does not create a copy of the argument.
+Pass by reference will reduce the complexity  generated by pointers in pass by address.
+
+#include<iostream>
+using namespace std;
+void swap(int&, int&);
+int main()
+{
+	int a=10,b=20;
+	cout<<"enter values of a & b\n"<<endl;
+	cin>>a>>b;
+	swap(a,b);
+	cout<<"after swapping "<<endl;
+	cout<<"values of a & b is"<<a<b<<endl;
+	return 0;
+}
+void swap(int& p, int& q)
+{
+	int temp;
+	temp=p;
+	 p=q;
+	q=temp;
+}
+==>In c++,reference is also used to share data between functions i.e pass by reference.
+
+ex:
+void main()
+{
+int a=100;
+int &b=a;
+int &c=b;
+cout<<a<<b<<c;
+c=200;
+cout<<a<<b<<c;
+}
+=====================================================================================================
+Difference between pointer and reference;
+1)pointer is a flexible connection. it can point to any variable at a given point of a program.
+Reference is a rigid connection,reference once created,cannot refer to any other object.
+
+2)pointer has to be dereferenced using * operator to access the value at the address pointed by it.
+A reference has direct connection as it is another name for the same memory location.
+
+3)Reference cannot be null whereas pointer can point to null to indicate that they are not pointing to any valid thing. .
+
+4)Array of pointers can be created,array of references cannot be created.
+=====================================================================================================

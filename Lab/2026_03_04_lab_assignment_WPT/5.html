@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5</title>
+    <script src="5.js"></script>
+</head>
+<body>
+    <input id="input_text" type="text" placeholder="enter some mixed case text">
+
+    <fieldset>
+        <legend>Change text case</legend>
+        <input onchange="handleRadioInput()" value="uppercase" name="change_case" type="radio" >UPPERCASE
+        <input onchange="handleRadioInput()" value="lowercase" name="change_case" type="radio" >lowercase
+        <input onchange="handleRadioInput()" value="as_it_is" name="change_case" type="radio" >As It Is
+    </fieldset>
+    
+    <br>
+    <div id="output"></div>
+</body>
+</html>
