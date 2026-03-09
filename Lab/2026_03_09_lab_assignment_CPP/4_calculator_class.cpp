@@ -14,7 +14,7 @@ class Calculator
     float subtract();
     float multiply();
     float divide();
-    float square();
+    void square();
 };
 
 Calculator::Calculator(float a, float b)  // constructor definition
@@ -43,9 +43,10 @@ float Calculator::divide()
   return (num1 / num2);
 }
 
-float Calculator::square()
+void Calculator::square()
 {
-  return num1*num1, num2*num2;
+  cout <<"square(" <<num1 <<"): " <<num1*num1 <<endl;
+  cout <<"square(" <<num2 <<"): " <<num2*num2 <<endl;
 }
 
 
@@ -64,7 +65,11 @@ int main()
 
   //
   cout <<"add(" <<num1 <<", " <<num2 <<"): " <<calc_1.add() <<endl;
+  cout <<"subtract(" <<num1 <<", " <<num2 <<"): " <<calc_1.subtract() <<endl;
+  cout <<"multiply(" <<num1 <<", " <<num2 <<"): " <<calc_1.multiply() <<endl;
+  cout <<"divide(" <<num1 <<", " <<num2 <<"): " <<calc_1.divide() <<endl;
+  calc_1.square();
 
-
+  
   return 0;
 }
