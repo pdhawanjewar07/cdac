@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4_jquery_factorial</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <input id="input_num" type="number" placeholder="Enter an integer(>=0)" />
+
+    <br><br>
+    <fieldset>
+      <legend>Factorial</legend>
+      <p id="output"></p>
+    </fieldset>
+
+
+    <script>
+      function factorial(num){
+        if(num === 0 || num === 1){
+          return 1;
+        }
+
+        let result = 1;
+
+        while(num > 1){
+          result *= num;
+          num--;
+        }
+
+        return result;
+      }
+
+      $(document).ready(()=>{
+
+        // automatically upates on input
+        $("#input_num").on("input", () => { 
+        // $("#input_num").change(()=>{ // updates on outside click
+
+          $("#output").text(factorial(Number($("#input_num").val())))
+
+        })
+
+      })
+
+    </script>
+  </body>
+</html>
+
+

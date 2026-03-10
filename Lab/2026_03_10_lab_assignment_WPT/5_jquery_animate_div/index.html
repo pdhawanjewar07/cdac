@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5_jquery_animate_div</title>
+
+  <style>
+    #box{
+      height: 50px;
+      width: 50px;
+
+      background-color: midnightblue;
+      /* color: midnightblue; */
+ 
+      display: inline-block;
+      position: relative;   /* required for left movement */
+    
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  
+  <button id="animate_btn">Start Div Animation</button>
+  <br><br>
+  <div id="box"></div>
+
+  <script>
+    $(document).ready(()=>{
+
+      $("#animate_btn").click(()=>{
+
+        $("#box").animate({
+          left: "80%",
+          width: "100px",
+          height: "100px"
+        },
+        2000,
+        function(){   // arrow ()=> do not bind to "this"
+          // reset after animation
+          $(this).css({
+            left: "0px",
+            height: "50px",
+            width: "50px"
+          });
+        });
+
+      });
+
+    });
+
+  </script>
+</body>
+</html>
+
+

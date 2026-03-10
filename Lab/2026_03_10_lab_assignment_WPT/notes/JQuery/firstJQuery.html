@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <!-- cdn / jquery url -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(
+
+            function () {
+                console.log("ready");
+
+                let d = $("#p1").text();// plain text 
+
+                //alert(d);
+
+                let d1 = $("#p1").html();// text + html tags 
+
+                //alert(d1);
+
+                $("p").click(
+
+                    console.log("p click ")
+                )
+
+            }
+
+
+
+
+        )
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <p id="p1">Data <b>Bold </b></p>
+    </div>
+
+
+</body>
+
+
+
+</html>

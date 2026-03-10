@@ -1,0 +1,263 @@
+Dynamic initialization of object in C++
+
+==>Dynamic initialization of object refers to initializing the objects at a run time i.e., the initial value of an object is provided during run time.
+==>It can be achieved by using constructors and by passing parameters to the constructors.
+==>This comes in really handy when there are multiple constructors of the same class with different inputs.
+==>Dynamic initialization of the object using a constructor is beneficial when the data is of different formats.
+
+Dynamic Constructor:
+
+The constructor used for allocating the memory at runtime is known as the dynamic constructor.
+The memory is allocated at runtime using a new operator and similarly, memory is deallocated at runtime using the delete operator.
+
+#include<iostream>
+using namespace std;
+class Demo
+{
+    int* ptr;
+    public:
+    Demo()//dynamic constrcutor
+    {
+        cout<<"constructor is called\n";
+        ptr=new int;
+        *ptr=10;
+        
+
+    }
+    void display()
+    {
+        cout<<"value of attribute *ptr"<<*ptr<<endl;
+    }
+    ~Demo()
+    {
+        cout<<"destructor is called\n";
+        delete ptr;//heap section is deallocated
+
+    }
+};
+int main()
+{
+    Demo obj1;//object creation on stack
+    obj1.display();
+
+}
+
+Output
+10
+In the above example, new is used to dynamically initialize the variable in default constructor and memory is allocated on the heap.
+The objects of the class Demo calls the function and it displays the value of dynamically allocated variable i.e ptr 
+and also memory on heap section is deallocated by destructor.
+
+========================================================
+#include<iostream>
+using namespace std;
+#include<string.h>
+class String1
+{
+  int len;
+  char * ptr;
+  public:
+  String1()
+  {
+    len=1;
+    ptr=new char[len];
+    *ptr='A';
+  }  
+  void display()
+  {
+    if(len==1){
+    
+    cout<<"length is "<<len<<endl;
+    cout<<"character is "<<*ptr<<endl;
+    }
+  else
+  {
+    cout<<"length is "<<len<<endl;
+    cout<<"character is "<<ptr<<endl;
+  }
+  }
+  String1(char * sptr)
+  {
+    len=strlen(sptr);
+    ptr=new char[len+1];
+    strcpy(ptr,sptr);
+  }
+};
+int main()
+{
+  String1 c1;
+  c1.display();
+  String1 c2("rohit");
+  c2.display();
+}
+===============================================
+#include<iostream>
+using namespace std;
+#include<string.h>
+class String1
+{
+  int len;
+  char * ptr;
+  public:
+
+  void display()
+  {
+    if(len==1){
+    
+    cout<<"length is "<<len<<endl;
+    cout<<"character is "<<*ptr<<endl;
+    }
+  else
+  {
+    cout<<"length is "<<len<<endl;
+    cout<<"string is "<<ptr<<endl;
+  }
+  }
+  String1(int l)
+  {
+    len=l;
+    ptr=new char[len+1];
+    cout<<"accept string\n";
+    cin>>ptr;
+  }
+  String1(int l,char ch)
+  {
+    int i;
+    len=l;
+    ptr=new char[len+1];
+    for(i=0;i<len;i++)//len=50
+    {
+      ptr[i]=ch;
+    }//49
+    //i=50
+    ptr[i]='\0';
+  }
+
+};
+int main()
+{
+  String1 c3(4);
+  c3.display();
+  String1 c4(50,'*');
+  c4.display();
+}
+=======================================
+#include<iostream>
+using namespace std;
+class temp
+{
+  int *ptr;
+  int size;
+public:
+  temp();
+  void get();
+  void show();
+  int max();
+  int min();
+};
+temp::temp()
+{
+  cout<<"how many elements do u want to store\n";
+  cin>>size;  
+  ptr=new int[size];
+}
+void temp::get()
+{
+  cout<<"accept elements\n";
+  for(int i=0;i<size;i++)
+  cin>>ptr[i];
+}
+void temp::show()
+{
+  cout<<"value are\n";
+  for(int i=0;i<size;i++)
+  cout<<ptr[i]<<"\n";
+}
+int temp::max()
+{
+  int m=ptr[0];
+  for(int i=1;i<size;i++)
+  if(ptr[i]>m)
+  m=ptr[i];
+  return m;
+}
+int temp::min()
+{
+  int m=ptr[0];
+  for(int i=1;i<size;i++)
+  if(ptr[i]<m)
+  m=ptr[i];
+  return m;
+}
+int main()
+{
+  temp a;
+  a.get();
+  a.show();
+  cout<<"maximum number is "<<a.max()<<endl;
+  cout<<"minimum number is "<<a.min()<<endl;
+}
+
+===========================================================================
+
+#include<iostream>
+using namespace std;
+#include<string.h>
+class String1
+{
+  int len;
+  char * ptr;
+  public:
+  
+  void display()
+  {
+  
+  
+    cout<<"length is "<<len<<endl;
+    cout<<"character is "<<ptr<<endl;
+  
+  }
+  String1(char * sptr)
+  {
+    len=strlen(sptr);
+    ptr=new char[len+1];
+    strcpy(ptr,sptr);
+  }
+  ~String1()
+  {
+    cout<<"destrutor is called\n";
+    delete[]ptr;
+  }
+};
+int main()
+{
+  
+  String1 c2("rohit");
+  c2.display();
+  //c2.~String1();
+}
+
+Destructor
+
+Destructor is an instance member function that is invoked automatically whenever an object is going to be destroyed or explicitly deleted by delete operator.Meaning, a destructor is the last function that is going to be called before an object is destroyed.
+
+A destructor is also a special member function like a constructor. Destructor destroys the class objects created by the constructor. 
+Destructor has the same name as their class name preceded by a tilde (~) symbol.
+It is not possible to define more than one destructor hence destructor can not be overloaded.
+Destructor neither requires any argument nor returns any value.
+It is automatically called when an object goes out of scope. 
+Destructor release memory space occupied by the objects created by the constructor.
+In destructor, objects are destroyed in the reverse of an object creation.
+
+The thing is to be noted here if the object is created by using new or the constructor uses new to allocate memory that resides in the heap memory or the free store, the destructor should use delete to free the memory.   
+
+The syntax for defining the destructor within the class:
+
+~ <class-name>() {
+    // some instructions
+}
+The syntax for defining the destructor outside the class:
+
+<class-name> :: ~<class-name>() {
+    // some instructions
+}
