@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+
+    <script>
+        $(document).ready(
+            function () {
+
+                $("#b1").click(function () {
+
+                    $("#d1").fadeIn(1000);
+
+                })
+
+
+                $("#b2").click(function () {
+
+                    $("#d1").fadeOut(1000);
+
+                })
+
+                $("#b3").click(function () {
+
+                    $("#d1").fadeToggle();
+
+                })
+
+            }
+        )
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+    <div id="d1" style="width: 100px; height:100px ; background-color: aqua;"> </div>
+
+    <button id="b1">FadeIN</button>
+
+    <button id="b2">FadeOut</button>
+    <button id="b3">Fade IN / Out</button>
+
+</body>

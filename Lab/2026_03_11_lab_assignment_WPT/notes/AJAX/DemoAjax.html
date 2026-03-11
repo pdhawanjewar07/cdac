@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+                                   initial-scale=1.0"
+    />
+    <title>AJAX</title>
+    <script>
+      function loadData() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "https://fakestoreapi.com/products");
+        xhttp.send(); // send request  statechange  response
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) // fullfill
+          {
+            // console.log(this.responseText)
+            let d = JSON.parse(this.responseText); // object
+            // JSON   Object
+            console.log(d);
+            document.getElementById("data").innerText = d;
+          }
+        };
+      }
+    </script>
+  </head>
+  https://fakestoreapi.com/products
+
+  <body>
+    <h2>Fetch Data</h2>
+    <button onclick="loadData()">Fetch Data</button>
+
+    <div id="data"></div>
+  </body>
+</html>

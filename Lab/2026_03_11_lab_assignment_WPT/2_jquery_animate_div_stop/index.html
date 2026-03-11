@@ -24,6 +24,7 @@
 <body>
   
   <button id="animate_btn">Start Div Animation</button>
+  <button id="stop_animate_btn">Stop Div Animation</button>
   <br><br>
   <div id="box"></div>
 
@@ -37,7 +38,7 @@
           width: "100px",
           height: "100px"
         },
-        2000,
+        5000,
         function(){   // arrow ()=> do not bind to "this"
           // reset after animation
           $(this).css({
@@ -49,6 +50,11 @@
 
       });
 
+      $("#stop_animate_btn").click(()=>{
+
+        $("#box").stop()
+
+      });
     });
 
   </script>

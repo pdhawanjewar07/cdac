@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#b1").click(function () {
+                //alert($("p").text())
+                $("#p1").css("display", "none");
+            })
+            $("#p1").dblclick(function () {
+                $("#p1").css("display", "inline");
+            })
+            $("#b2").click(function () {
+                $("#p1").css("display", "block")
+            })
+        }
+        )
+    </script>
+
+</head>
+
+<body>
+
+    <p id="p1">
+        Paragraph Data
+    </p>
+
+    <button id="b1">Hide</button>
+
+    <button id="b2">Show</button>
+
+
+</body>
+
+</html>

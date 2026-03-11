@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3_jquery_button</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <!-- <p style="font-style: italic;"></p> -->
+    <button id="btn1">Click me</button>
+
+
+    <script>
+      $(document).ready(()=>{
+        $("#btn1").click(()=>{
+          //
+          $("<p>")
+          .text("Hello - no style")
+          .appendTo(document.body);
+
+          //
+          $("<p>")
+          .text("Hello - italic")
+          .css({fontStyle: "italic"})
+          .appendTo(document.body);
+
+          //
+          $("<p>")
+          .text("Hello - unerlined")
+          .css({textDecoration: "underline"})
+          .appendTo(document.body);
+        })
+
+      })
+      
+
+    </script>
+  </body>
+</html>
