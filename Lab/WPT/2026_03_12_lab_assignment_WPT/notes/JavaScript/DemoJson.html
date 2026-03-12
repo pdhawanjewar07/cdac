@@ -1,0 +1,29 @@
+<html>
+
+<script>
+
+    let d = '{"bookName": "JavaScript" , "price":200}'
+    //string 
+    console.log(typeof (d))
+
+    console.log(d);
+
+    console.log(typeof (JSON.parse(d)))  // object 
+    let d1 = JSON.parse(d);
+    //console.log(JSON.stringify(d))  JSON 
+
+    console.log(d1["bookName"])
+    console.log(d1.bookName)
+
+
+    let data = { name: "asd", email: "asd@as.as" }
+
+    console.log(data)
+
+    console.log(typeof (data))
+
+    console.log(JSON.stringify(data))
+
+</script>
+
+</html>

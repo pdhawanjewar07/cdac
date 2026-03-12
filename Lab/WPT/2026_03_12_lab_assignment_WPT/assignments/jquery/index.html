@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>load_another_html_page</title>
+  <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <button id="load_btn">Load another.html</button>
+
+  <div id="load_another"></div>
+
+
+  <!--  -->
+  <script>
+    $(document).ready(function(){
+      //
+      $("#load_btn").click(function(){
+        //
+        $("#load_another").load("another.html")
+      });
+    });
+    
+  </script>
+</body>
+</html>
+

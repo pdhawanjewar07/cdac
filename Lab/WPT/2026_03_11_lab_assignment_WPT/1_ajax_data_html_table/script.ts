@@ -15,7 +15,8 @@ function loadData() {
   xhttp.send();
 
   xhttp.onreadystatechange = function () {
-    
+    // 4 - readyState (Request finished)
+    //  200 - for GET (Request successful, response body returned)
     if (this.readyState === 4 && this.status === 200) {
   
       let data: Product[] = JSON.parse(this.responseText);

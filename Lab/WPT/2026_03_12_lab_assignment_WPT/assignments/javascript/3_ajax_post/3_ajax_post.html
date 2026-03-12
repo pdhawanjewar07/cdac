@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3_ajax_post</title>
+  <script src="3_ajax_post.js" defer></script>
+</head>
+<body>
+  
+  <div id="user_input">
+
+    <label for="user_title">Title: </label>
+    <input id="user_title" type="text" required>
+
+    <br><br>
+    <label for="user_id">User ID: </label>
+    <input id="user_id" type="number" required>
+
+    <br><br>
+    <label for="user_body">Body: </label>
+    <input id="user_body" type="text" required>
+
+    <br><br>
+    <button id="send_records_btn">Send Records by AJAX-POST method ↗</button>
+
+  </div>
+
+  <br><br>
+  <fieldset>
+    <legend>Response Text from POST url(https://jsonplaceholder.typicode.com/todos)</legend>
+  
+    <p id="output"></p>
+  </fieldset>
+</body>
+</html>
+
+
