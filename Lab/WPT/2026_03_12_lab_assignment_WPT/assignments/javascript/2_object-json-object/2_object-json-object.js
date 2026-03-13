@@ -1,7 +1,7 @@
 var obj1 = {
     id: 47,
     name: "Prathamesh Dhawanjewar",
-    salary: 99999,
+    salary: 999999,
 };
 // to json data
 var json_data = JSON.stringify(obj1);

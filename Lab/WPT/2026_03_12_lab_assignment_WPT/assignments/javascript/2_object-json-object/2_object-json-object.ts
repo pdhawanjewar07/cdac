@@ -7,7 +7,7 @@ type Obj1 = {
 const obj1: Obj1 = {
   id: 47,
   name: "Prathamesh Dhawanjewar",
-  salary: 99999,
+  salary: 999_999,
 }
 
 // to json data
