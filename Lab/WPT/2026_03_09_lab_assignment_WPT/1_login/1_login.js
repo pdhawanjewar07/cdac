@@ -1,5 +1,5 @@
-var username_el = document.getElementById("username");
-var password_el = document.getElementById("password");
+const username_el = document.getElementById("username");
+const password_el = document.getElementById("password");
 var username, password;
 function check_login() {
     username = username_el.value;
@@ -28,3 +28,4 @@ function check_login() {
         alert("Username or password not valid!");
     }
 }
+export {};

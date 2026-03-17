@@ -1,6 +1,6 @@
-for (var start = 1; start <= 100; start++) {
+for (let start = 1; start <= 100; start++) {
     //
-    var output = "";
+    let output = "";
     if (start % 3 == 0) {
         output += "foo";
     }
@@ -8,6 +8,7 @@ for (var start = 1; start <= 100; start++) {
         output += "bar";
     }
     if (output !== "") {
-        console.log("".concat(start, ": ").concat(output));
+        console.log(`${start}: ${output}`);
     }
 }
+export {};

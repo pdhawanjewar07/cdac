@@ -1,7 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+export {};
 function divide(a, b) {
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
         if (b === 0) {
             reject(new Error("Division by zero"));
         }
@@ -11,8 +10,8 @@ function divide(a, b) {
     });
 }
 divide(4, 3)
-    .then(function (res) { return console.log(res); })
-    .catch(function (err) { return console.error(err); });
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
 divide(4, 0)
-    .then(function (res) { return console.log(res); })
-    .catch(function (err) { return console.error(err); });
+    .then(res => console.log(res))
+    .catch(err => console.error(err));

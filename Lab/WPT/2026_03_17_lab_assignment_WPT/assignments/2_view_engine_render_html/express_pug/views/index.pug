@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title Perfect Number Checker
+  body
+    h1 Check Perfect Number (view Engine: Pug)
+
+    p Perfect numbers (for ref.) = [6, 28, 496, 8128, 2096128, 33550336]
+
+    form(action="/check_perfect_num", method="POST")
+      input(type="number", name="input_num", required)
+      button(type="submit") Check
+
+    if result !== undefined
+      h2= result

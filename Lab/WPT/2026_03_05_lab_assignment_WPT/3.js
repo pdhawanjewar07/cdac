@@ -1,5 +1,5 @@
 var array = ["a", "b", "c", "d"];
-var output_arr_div = document.getElementById("output_arr");
+const output_arr_div = document.getElementById("output_arr");
 // --------------------------------------------------------------
 function update_array_display() {
     output_arr_div.innerHTML = array.join(", ");
@@ -8,10 +8,10 @@ function update_array_display() {
 ;
 update_array_display();
 // --------------------------------------------------------------
-var check_found_btn = document.getElementById("check_found");
+const check_found_btn = document.getElementById("check_found");
 var input_text_el = document.getElementById("input_text");
 var input_text;
-check_found_btn === null || check_found_btn === void 0 ? void 0 : check_found_btn.addEventListener("click", function () {
+check_found_btn?.addEventListener("click", () => {
     //
     input_text = input_text_el.value;
     if (array.includes(input_text)) {
@@ -22,8 +22,8 @@ check_found_btn === null || check_found_btn === void 0 ? void 0 : check_found_bt
     }
 });
 // --------------------------------------------------------------
-var add_to_array_btn = document.getElementById("add_to_array");
-add_to_array_btn === null || add_to_array_btn === void 0 ? void 0 : add_to_array_btn.addEventListener("click", function () {
+const add_to_array_btn = document.getElementById("add_to_array");
+add_to_array_btn?.addEventListener("click", () => {
     //
     input_text = input_text_el.value;
     if (array.includes(input_text)) {
@@ -36,15 +36,15 @@ add_to_array_btn === null || add_to_array_btn === void 0 ? void 0 : add_to_array
     update_array_display();
 });
 // --------------------------------------------------------------
-var add_to_array_at_index_btn = document.getElementById("add_to_array_at_index");
-var add_at_index_el = document.getElementById("add_at_index");
+const add_to_array_at_index_btn = document.getElementById("add_to_array_at_index");
+const add_at_index_el = document.getElementById("add_at_index");
 var add_at_index;
-add_to_array_at_index_btn === null || add_to_array_at_index_btn === void 0 ? void 0 : add_to_array_at_index_btn.addEventListener("click", function () {
+add_to_array_at_index_btn?.addEventListener("click", () => {
     //
     input_text = input_text_el.value;
     add_at_index = Number(add_at_index_el.value);
     if (array.includes(input_text)) {
-        alert("Already present in array: ".concat(array.indexOf(input_text), "(index)"));
+        alert(`Already present in array: ${array.indexOf(input_text)}(index)`);
         return;
     }
     //
@@ -52,10 +52,10 @@ add_to_array_at_index_btn === null || add_to_array_at_index_btn === void 0 ? voi
     update_array_display();
 });
 // --------------------------------------------------------------
-var remove_from_array_at_index_btn = document.getElementById("remove_from_array_at_index");
-var remove_at_index_el = document.getElementById("remove_at_index");
+const remove_from_array_at_index_btn = document.getElementById("remove_from_array_at_index");
+const remove_at_index_el = document.getElementById("remove_at_index");
 var remove_at_index;
-remove_from_array_at_index_btn === null || remove_from_array_at_index_btn === void 0 ? void 0 : remove_from_array_at_index_btn.addEventListener("click", function () {
+remove_from_array_at_index_btn?.addEventListener("click", () => {
     //
     remove_at_index = Number(remove_at_index_el.value);
     if ((remove_at_index >= array.length)) {
@@ -66,3 +66,4 @@ remove_from_array_at_index_btn === null || remove_from_array_at_index_btn === vo
     array.splice(remove_at_index, 1);
     update_array_display();
 });
+export {};

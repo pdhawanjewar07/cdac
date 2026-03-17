@@ -1,0 +1,29 @@
+app.use(express.urlencoded({extended : false}))
+app.post('/usersadd',(req , res)=>{
+
+    const data = req.body;
+
+    console.log("data " + data.email);
+    users.push({data , id:users.length+1});
+
+    f.writeFile('./MOCK_DATA.json',JSON.stringify(users) ,(err)=>{
+    console.log(err)});
+
+    return  res.json("data added ");
+
+   
+
+});
+
+
+middleware 
+
+app.use((req, res, next) => {
+  // Middleware code goes here
+  console.log('Time:', new Date().toDateString);
+  
+  // Call next() to pass control to the next middleware function
+  next();
+});
+
+npm run start 

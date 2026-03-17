@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Perfect Number Checker</title>
+</head>
+<body>
+  <h1>Check Perfect Number (view Engine: ejs)</h1>
+
+  <p>Perfect numbers(for ref.) = [6, 28, 496, 8128, 2096128, 33550336]</p>
+
+  <form action="/check_perfect_num" method="POST">
+    <input type="number" name="input_num" required />
+    <button type="submit">Check</button>
+  </form>
+
+  <% if (result !== undefined) { %>
+    <h2><%= result %></h2>
+  <% } %>
+
+</body>
+</html>

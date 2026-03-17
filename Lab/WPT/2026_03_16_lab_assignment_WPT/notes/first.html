@@ -1,0 +1,39 @@
+<html>
+
+
+<body>
+
+	<div id="d1">
+		<h1>
+			<p id="p1">
+
+				Paragraph Data
+			</p>
+
+		</h1>
+	</div>
+
+	<button onClick="call ()">Change Text </button>
+
+
+
+	<script>
+
+		function call() {
+			// read 
+			document.getElementById("p1").innerText = "Data Changed"
+
+			//create new  Element 
+			let pEle = document.createElement("p") // <p>
+			pEle.innerHTML = "<b> New Paragraph";
+			//it will add inside body tag
+			document.body.appendChild(pEle);
+			//it will add inside div tag
+			document.getElementById("d1").appendChild(pEle);
+
+		} 
+	</script>
+
+</body>
+
+</html>

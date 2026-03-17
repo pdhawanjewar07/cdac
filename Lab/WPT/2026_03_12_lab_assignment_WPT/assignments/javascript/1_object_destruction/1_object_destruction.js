@@ -1,10 +1,11 @@
-var obj1 = {
+const obj = {
     id: 47,
     name: "Prathamesh Dhawanjewar",
     salary: 99999,
 };
 // Destroying the object
-var o_id = obj1.id, o_name = obj1.name, o_salary = obj1.salary;
+const { id: o_id, name: o_name, salary: o_salary } = obj;
 console.log(o_id);
 console.log(o_name);
 console.log(o_salary);
+export {};

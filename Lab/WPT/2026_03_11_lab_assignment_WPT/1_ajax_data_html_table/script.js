@@ -1,47 +1,50 @@
-var fetch_btn = document.getElementById("fetch_data");
-var output_div = document.getElementById("ajax_data");
+const fetch_btn = document.getElementById("fetch_data");
+const output_div = document.getElementById("ajax_data");
 function loadData() {
-    var xhttp = new XMLHttpRequest();
-    var url = "https://fakestoreapi.com/products";
+    let xhttp = new XMLHttpRequest();
+    const url = "https://fakestoreapi.com/products";
     xhttp.open("GET", url);
     xhttp.send();
     xhttp.onreadystatechange = function () {
+        // 4 - readyState (Request finished)
+        //  200 - for GET (Request successful, response body returned)
         if (this.readyState === 4 && this.status === 200) {
-            var data = JSON.parse(this.responseText);
+            let data = JSON.parse(this.responseText);
             // console.log(data);
             // output_div.innerText = JSON.stringify(d, null, 2);
             // create table
-            var table_1 = document.createElement("table");
-            table_1.style.border = "1px solid black";
+            const table = document.createElement("table");
+            table.style.border = "1px solid black";
             // create header row
-            var headerRow_1 = document.createElement("tr");
-            var headers = ["ID", "Title", "Price"];
-            headers.forEach(function (headerText) {
-                var th = document.createElement("th");
+            const headerRow = document.createElement("tr");
+            const headers = ["ID", "Title", "Price"];
+            headers.forEach(headerText => {
+                const th = document.createElement("th");
                 th.innerText = headerText;
                 th.style.border = "1px solid black";
-                headerRow_1.appendChild(th);
+                headerRow.appendChild(th);
             });
-            table_1.appendChild(headerRow_1);
-            data.forEach(function (item) {
-                var row = document.createElement("tr");
-                var td1 = document.createElement("td");
+            table.appendChild(headerRow);
+            data.forEach((item) => {
+                const row = document.createElement("tr");
+                const td1 = document.createElement("td");
                 td1.innerText = item.id.toString();
                 td1.style.border = "1px solid black";
-                var td2 = document.createElement("td");
+                const td2 = document.createElement("td");
                 td2.innerText = item.title;
                 td2.style.border = "1px solid black";
-                var td3 = document.createElement("td");
+                const td3 = document.createElement("td");
                 td3.innerText = item.price.toString();
                 td3.style.border = "1px solid black";
                 row.appendChild(td1);
                 row.appendChild(td2);
                 row.appendChild(td3);
-                table_1.appendChild(row);
+                table.appendChild(row);
             });
             // append table to div
-            output_div.appendChild(table_1);
+            output_div.appendChild(table);
         }
     };
 }
 fetch_btn.addEventListener("click", loadData);
+export {};

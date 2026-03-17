@@ -1,0 +1,4 @@
+emp_id: 12
+emp_name: giga chad
+emp_salary: 99999
+emp_deignation: Project Leader

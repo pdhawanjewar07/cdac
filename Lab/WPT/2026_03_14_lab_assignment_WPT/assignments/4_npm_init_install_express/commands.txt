@@ -1,0 +1,12 @@
+
+1. npm init -y
+- initialises package.json with default arguements
+
+2. npm install
+- makes a package-lock.json
+
+3. npm install express
+- installs package "express" to node_modules/
+- also adds it to package.json dependencies
+- also adds it to package-lock.json dependencies
+

@@ -1,29 +1,27 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {};
+export default {};
 // -------------------------------------------------------------
 function step1(callback) {
-    setTimeout(function () {
+    setTimeout(() => {
         console.log("Step 1 finished");
         callback();
-    }, 1000);
+    }, 1_000);
 }
 function step2(callback) {
-    setTimeout(function () {
+    setTimeout(() => {
         console.log("Step 2 finished");
         callback();
-    }, 1000);
+    }, 1_000);
 }
 function step3(callback) {
-    setTimeout(function () {
+    setTimeout(() => {
         console.log("Step 3 finished");
         callback();
-    }, 1000);
+    }, 1_000);
 }
 // nested callbacks
-step1(function () {
-    step2(function () {
-        step3(function () {
+step1(() => {
+    step2(() => {
+        step3(() => {
             console.log("Using Nested Callbacks - All steps completed");
         });
     });
@@ -39,10 +37,10 @@ function step_3() {
     return Promise.resolve("step 3 - Executed");
 }
 step_1()
-    .then(function (msg) { console.log(msg); return step_2(); })
-    .then(function (msg) { console.log(msg); return step_3(); })
-    .then(function (msg) { console.log(msg); })
-    .then(function () { console.log("Using Promises - All steps completed"); })
+    .then((msg) => { console.log(msg); return step_2(); })
+    .then((msg) => { console.log(msg); return step_3(); })
+    .then((msg) => { console.log(msg); })
+    .then(() => { console.log("Using Promises - All steps completed"); })
     .catch(console.log);
 /*  >> Notes:
 - .then() chains functions

@@ -1,0 +1,9 @@
+Notes:
+  - Node stores CLI args in: process.argv
+
+  - Structure: [ 'node', 'file.js', ...your_args ]
+  - So real inputs start from index 2.
+
+  - Run it: node script.js 1 2 3 4 5 6
+
+

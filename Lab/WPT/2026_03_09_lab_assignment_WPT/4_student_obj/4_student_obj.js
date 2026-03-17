@@ -5,6 +5,7 @@ var student = {
 };
 var student_obj_string = JSON.stringify(student);
 console.log(student_obj_string);
-console.log("----------------------------------");
+console.log("----------------------------------------------------");
 var student_obj = JSON.parse(student_obj_string);
 console.log(student_obj);
+export {};

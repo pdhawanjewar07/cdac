@@ -1,10 +1,10 @@
-var arr_symbols_ascii = [];
-var arr_small_alphabets_ascii = [];
-var arr_upper_alphabets_ascii = [];
-var arr_0to9_ascii = [];
+let arr_symbols_ascii = [];
+let arr_small_alphabets_ascii = [];
+let arr_upper_alphabets_ascii = [];
+let arr_0to9_ascii = [];
 function add_to_arr(arr, start, end) {
     // inclusive ends
-    for (var i = start; i <= end; i++) {
+    for (let i = start; i <= end; i++) {
         arr.push(i);
     }
 }
@@ -23,27 +23,27 @@ function initialize_ascii_arrays() {
 }
 function get_random_arr_from_arr(arr) {
     //  floor(0-1) * arr.length
-    var index = Math.floor(Math.random() * arr.length);
+    const index = Math.floor(Math.random() * arr.length);
     return arr[index];
 }
 function get_random_num_from_arr(arr) {
     //  floor(0-1) * arr.length
-    var index = Math.floor(Math.random() * arr.length);
+    const index = Math.floor(Math.random() * arr.length);
     return arr[index];
 }
 // Global initialization on start
 // populate ascii values to their arrays
 initialize_ascii_arrays();
 // make array of arrays
-var big_arr = [arr_symbols_ascii, arr_small_alphabets_ascii, arr_upper_alphabets_ascii, arr_0to9_ascii];
-var input_pass_length_el = document.getElementById("input_pass_length");
-var output_pass_p_el = document.getElementById("output_pass_p_el");
-var gen_ranom_pass_btn = document.getElementById("gen_ranom_pass_btn");
-var copy_to_clipboard_btn = document.getElementById("copy_to_clipboard_btn");
-var input_pass_length;
+const big_arr = [arr_symbols_ascii, arr_small_alphabets_ascii, arr_upper_alphabets_ascii, arr_0to9_ascii];
+const input_pass_length_el = document.getElementById("input_pass_length");
+const output_pass_p_el = document.getElementById("output_pass_p_el");
+const gen_ranom_pass_btn = document.getElementById("gen_ranom_pass_btn");
+const copy_to_clipboard_btn = document.getElementById("copy_to_clipboard_btn");
+let input_pass_length;
 function get_random_password() {
     //
-    var random_password = "";
+    let random_password = "";
     input_pass_length = Number(input_pass_length_el.value);
     // type(input_pass_length) == integer
     if (input_pass_length % 1 !== 0) {
@@ -56,17 +56,18 @@ function get_random_password() {
         alert("Password length must be between 1-20 👊");
         return;
     }
-    for (var i = 1; i <= input_pass_length; i++) {
+    for (let i = 1; i <= input_pass_length; i++) {
         //
-        var ranom_arr = get_random_arr_from_arr(big_arr);
-        var random_ascii = get_random_num_from_arr(ranom_arr);
+        let ranom_arr = get_random_arr_from_arr(big_arr);
+        let random_ascii = get_random_num_from_arr(ranom_arr);
         random_password += String.fromCharCode(random_ascii);
     }
     // insert pass here
     output_pass_p_el.innerText = random_password;
 }
 gen_ranom_pass_btn.addEventListener("click", get_random_password);
-copy_to_clipboard_btn.addEventListener("click", function () {
+copy_to_clipboard_btn.addEventListener("click", () => {
     //
     navigator.clipboard.writeText(output_pass_p_el.innerText);
 });
+export {};

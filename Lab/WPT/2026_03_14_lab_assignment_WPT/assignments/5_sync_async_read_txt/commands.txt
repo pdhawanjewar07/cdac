@@ -1,0 +1,9 @@
+>> Just for setup to use in typescript 😒
+
+1. npx tsc --init
+
+2. npm install --save-dev @types/node
+
+3. add "node" to compilerOptions{types[]}
+
+4. then import package fs

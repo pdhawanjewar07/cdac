@@ -1,8 +1,8 @@
-var input_textfield = document.getElementById("input_text");
-var hint_el = document.getElementById("hint");
+const input_textfield = document.getElementById("input_text");
+const hint_el = document.getElementById("hint");
 function validate() {
     //
-    var input_text = input_textfield.value;
+    const input_text = input_textfield.value;
     if (input_text === "") {
         hint_el.innerText = "texfield empty (Required) 👊";
         return;
@@ -15,3 +15,4 @@ function validate() {
 }
 input_textfield.addEventListener("input", validate);
 validate();
+export {};

@@ -1,11 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {};
+export default {};
 function f1() {
     console.log("in f1 ");
 }
-var p = new Promise(function (resolve, reject) {
-    var n = 4;
+let p = new Promise((resolve, reject) => {
+    let n = 4;
     if (n % 2 == 0)
         resolve("number " + n + "is even number ");
     reject("false");
@@ -14,11 +12,11 @@ var p = new Promise(function (resolve, reject) {
 // (priority)1. Call Stack (synchronous code)
 console.log("in demo execution ");
 // (priority)3. Macrotask Queue (Timers, setTimeout, setInterval, etc.)
-setTimeout(function () {
+setTimeout(() => {
     console.log("in settimeout ");
 }, 0); // 0 miliseconds does not mean immediate execution
 // (priority)2. Microtask Queue (Promises)
-p.then(function (message) { return console.log(message); }).catch(function (error) { return console.log(error); });
+p.then((message) => console.log(message)).catch((error) => console.log(error));
 // (priority)1. Call Stack (synchronous code)
 f1();
 /*  >> Execution Order:
