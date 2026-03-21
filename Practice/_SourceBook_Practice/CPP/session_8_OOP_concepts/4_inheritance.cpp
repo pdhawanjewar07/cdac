@@ -1,0 +1,29 @@
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+  public:
+    void eat() {
+      cout <<"Eating\n";
+    }
+};
+
+//     (inhertiance mode)
+//          ^^^^^^
+class Dog : public Animal {
+  public:
+    void bark() {
+      cout <<"Barking\n";
+    }
+};
+
+
+int main(){
+  //
+  Dog d;
+  d.eat();   // inherited
+  d.bark();
+
+  return 0;
+}
